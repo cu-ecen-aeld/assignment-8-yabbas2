@@ -1,0 +1,18 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+        sh /etc/init.d/module_load hello
+        sh /etc/init.d/module_load faulty
+        sh /etc/init.d/scull_load
+        ;;
+    stop)
+        sh /etc/init.d/module_unload hello
+        sh /etc/init.d/module_unload faulty
+        sh /etc/init.d/scull_unload
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
